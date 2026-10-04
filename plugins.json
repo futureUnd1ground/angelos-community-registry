@@ -5,9 +5,9 @@
       "id": "community-store",
       "name": "AngelOS Community Store",
       "author": "futureUnd1ground",
-      "version": "0.6.0",
+      "version": "0.6.2",
       "description": "Terminal UI for browsing, installing, updating, and removing AngelOS plugins.",
-      "source": "https://github.com/futureUnd1ground/angelos-community-store/releases/download/v0.6.0/community-store-v0.6.0.zip",
+      "source": "https://github.com/futureUnd1ground/angelos-community-store/releases/download/v0.6.2/community-store-v0.6.2.zip",
       "repository": "https://github.com/futureUnd1ground/angelos-community-store",
       "tags": [
         "utility",
