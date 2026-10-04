@@ -100,6 +100,12 @@ def require_moderator():
     return user
 
 
+def check_moderator_access():
+    user = require_moderator()
+    print("Moderator access granted: @{}".format(user))
+    return 0
+
+
 def validate_archive(entry):
     source = str(entry.get("source", ""))
     if not source.startswith("https://"):
@@ -389,6 +395,8 @@ class ModeratorUI:
 
 def main():
     try:
+        if "--check" in sys.argv[1:]:
+            return check_moderator_access()
         require_moderator()
         curses.wrapper(lambda screen: ModeratorUI(screen).run())
     except KeyboardInterrupt:

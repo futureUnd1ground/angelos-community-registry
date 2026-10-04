@@ -38,7 +38,13 @@ fish_add_path ~/.local/bin
 команду `community-registry-moderator` для запуска из любой папки и при
 необходимости сообщает, как настроить GitHub CLI. Для модерации нужны
 `gh auth login` и GitHub-аккаунт из [`moderators.json`](moderators.json).
-Сейчас в allowlist находится только `futureUnd1ground`.
+В allowlist находятся `futureUnd1ground` и `MixaDoDs` — владелец форка
+`MixaDoDs/angelos-community-store`.
+
+Проверить доступ, не запуская TUI, можно командой
+`community-registry-moderator --check`. Она проверяет вход через GitHub CLI и
+сверяет аккаунт с [`moderators.json`](moderators.json). Только прошедшие эту
+проверку могут выполнять действия модерации.
 
 TUI показывает единый inbox: записи registry и все открытые Pull Request,
 включая PR с ошибочным или отсутствующим `plugins.json`. Клавиши: `p`, `a`,

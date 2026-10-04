@@ -71,10 +71,15 @@ it also copies the previously authenticated temporary `gh` binary into
 authenticated in that Fish session, run `gh auth login` once.
 
 The TUI checks the authenticated GitHub username against
-[`moderators.json`](moderators.json). The default list contains only
-`futureUnd1ground`; add another username through a reviewed Pull Request to
-grant that person moderator access. GitHub repository write permissions remain
+[`moderators.json`](moderators.json). The allowlist contains
+`futureUnd1ground` and `MixaDoDs`, the owner of the community-store fork. Add
+another username through a reviewed Pull Request to grant moderator access.
+GitHub repository write permissions remain
 the final authorization boundary for changing the registry.
+
+Run `community-registry-moderator --check` to verify GitHub authentication and
+allowlist access without starting the TUI. Only an allowlisted account can
+perform moderation actions.
 
 The TUI has one inbox containing registry records and every open pull request,
 including PRs with an invalid or missing `plugins.json`. Use `p/a/R/l` for
