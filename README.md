@@ -44,6 +44,27 @@ Example entry:
 
 ## Moderation
 
+Repository maintainers can use the simple moderator TUI after authenticating
+with GitHub CLI:
+
+```bash
+gh auth login
+python3 scripts/community-registry-moderator.py
+```
+
+The TUI checks the authenticated GitHub username against
+[`moderators.json`](moderators.json). The default list contains only
+`futureUnd1ground`; add another username through a reviewed Pull Request to
+grant that person moderator access. GitHub repository write permissions remain
+the final authorization boundary for changing the registry.
+
+Use `p/a/R/l` to switch pending, approved, rejected, or all entries; `t` to
+download and validate a release in an isolated temporary directory; `y` to
+approve; `n` to reject; `r` to refresh; and `q` to quit. Approval and rejection
+require typing `YES` and commit the status change to `main` through the GitHub
+API. The test action validates the archive and performs an isolated install;
+it does not execute unreviewed QML inside the running AngelOS shell.
+
 Review the plugin source, manifest, archive contents, release provenance,
 license, dependencies, requested permissions, and AngelOS compatibility in
 the pull request. Test the ZIP with Community Store when possible. Merge only
