@@ -59,11 +59,12 @@ grant that person moderator access. GitHub repository write permissions remain
 the final authorization boundary for changing the registry.
 
 Use `p/a/R/l` to switch pending, approved, rejected, or all entries; `t` to
-download and validate a release in an isolated temporary directory; `y` to
+download and validate the ZIP and manifest in a temporary directory; `y` to
 approve; `n` to reject; `r` to refresh; and `q` to quit. Approval and rejection
 require typing `YES` and commit the status change to `main` through the GitHub
-API. The test action validates the archive and performs an isolated install;
-it does not execute unreviewed QML inside the running AngelOS shell.
+API. Package validation does not execute QML. Test plugin behavior in a
+separate AngelOS test session before approval; running unreviewed plugin code
+inside the moderator could execute with the moderator's account permissions.
 
 Review the plugin source, manifest, archive contents, release provenance,
 license, dependencies, requested permissions, and AngelOS compatibility in

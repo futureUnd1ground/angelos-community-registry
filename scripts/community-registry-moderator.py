@@ -14,7 +14,7 @@ from pathlib import Path
 REPO = "futureUnd1ground/angelos-community-registry"
 REGISTRY_URL = "https://raw.githubusercontent.com/{}/main/plugins.json".format(REPO)
 MODERATORS_URL = "https://raw.githubusercontent.com/{}/main/moderators.json".format(REPO)
-GH = shutil.which("gh") or "/tmp/gh-cli-2.102.0/gh_2.102.0_linux_amd64/bin/gh"
+GH = shutil.which("gh")
 MAX_ARCHIVE = 64 * 1024 * 1024
 ID_CHARS = set("abcdefghijklmnopqrstuvwxyz0123456789_-")
 
@@ -29,6 +29,8 @@ def fetch_registry():
 
 
 def current_github_user():
+    if not GH:
+        raise RuntimeError("GitHub CLI is required; install gh and run gh auth login")
     result = subprocess.run([GH, "api", "user", "--jq", ".login"], capture_output=True, text=True)
     if result.returncode:
         raise RuntimeError("GitHub login required: run gh auth login")
@@ -170,7 +172,7 @@ class ModeratorUI:
                 if detail + offset < height - 2:
                     self.screen.addnstr(detail + offset, 0, line.ljust(width - 1), width - 1, curses.A_BOLD if offset == 0 else curses.A_NORMAL)
         self.screen.addnstr(height - 2, 0, self.message.ljust(width - 1), width - 1, curses.color_pair(3) if self.error else curses.color_pair(2))
-        self.screen.addnstr(height - 1, 0, "j/k move  t test install  y approve  n reject  r refresh  q quit".ljust(width - 1), width - 1, curses.A_DIM)
+        self.screen.addnstr(height - 1, 0, "j/k move  t validate package  y approve  n reject  r refresh  q quit".ljust(width - 1), width - 1, curses.A_DIM)
         self.screen.refresh()
 
     def confirm(self, prompt):
