@@ -76,13 +76,17 @@ The TUI checks the authenticated GitHub username against
 grant that person moderator access. GitHub repository write permissions remain
 the final authorization boundary for changing the registry.
 
-Use `p/a/R/l` to switch pending, approved, rejected, or all entries; `t` to
-download and validate the ZIP and manifest in a temporary directory; `y` to
-approve; `n` to reject; `r` to refresh; and `q` to quit. Approval and rejection
-require typing `YES` and commit the status change to `main` through the GitHub
-API. Package validation does not execute QML. Test plugin behavior in a
-separate AngelOS test session before approval; running unreviewed plugin code
-inside the moderator could execute with the moderator's account permissions.
+The TUI has one inbox containing registry records and every open pull request,
+including PRs with an invalid or missing `plugins.json`. Use `p/a/R/l` for
+pending, approved, rejected, or all registry records; `g` for open PRs; `/` to
+search ID, name, author, description, tags, or PR title; `t` to download and
+validate the ZIP and manifest; `y`/`n` to change an existing registry record;
+`v` to submit a GitHub review; `m` to validate and merge a PR; `c` to close it; `o` to open its URL; `r` to
+refresh; and `j`/`k` or arrow keys to move. Every mutating action requires
+typing `YES`; a plugin PR cannot be merged when archive validation fails.
+Package validation does not execute QML. Test plugin behavior in a separate
+AngelOS test session before approval; running unreviewed plugin code inside the
+moderator could execute with the moderator's account permissions.
 
 Review the plugin source, manifest, archive contents, release provenance,
 license, dependencies, requested permissions, and AngelOS compatibility in
