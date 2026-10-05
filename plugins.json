@@ -233,6 +233,53 @@
         "local plugin settings"
       ],
       "status": "approved"
+    },
+    {
+      "id": "emoji-picker",
+      "name": "Emoji Picker",
+      "author": "futureUnd1ground",
+      "version": "1.0.0",
+      "description": "Выбор эмодзи по Meta + .: поиск на русском и английском, темы окна, Twemoji и оформление из обоев.",
+      "source": "https://github.com/futureUnd1ground/angelos-emoji-picker/releases/download/v1.0.0/emoji-picker-v1.0.0.zip",
+      "repository": "https://github.com/futureUnd1ground/angelos-emoji-picker",
+      "license": "MIT; Unicode data license; Apache-2.0/CC-BY-4.0 for bundled Twemoji",
+      "tags": [
+        "emoji",
+        "keyboard",
+        "clipboard",
+        "themes"
+      ],
+      "category": "Utilities",
+      "dependencies": [
+        "Niri with config includes",
+        "Python 3.10+",
+        "fuzzel",
+        "wl-clipboard",
+        "Noto Color Emoji for Google emoji style"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "bibata-cursor",
+      "name": "Bibata Cursor",
+      "author": "futureUnd1ground",
+      "version": "1.0.0",
+      "description": "Курсоры Bibata Modern Ice, Classic и Amber; размеры 24/32/48 и вариант с цветом из обоев. Интеграция со штатными настройками курсора AngelOS.",
+      "source": "https://github.com/futureUnd1ground/angelos-bibata-cursor/releases/download/v1.0.0/bibata-cursor-v1.0.0.zip",
+      "repository": "https://github.com/futureUnd1ground/angelos-bibata-cursor",
+      "license": "GPL-3.0",
+      "tags": [
+        "cursor",
+        "bibata",
+        "themes",
+        "wallpaper"
+      ],
+      "category": "Desktop",
+      "dependencies": [
+        "AngelOS Cursors and PaletteGenerator services",
+        "Python 3.10+"
+      ],
+      "status": "approved"
     }
   ]
 }
