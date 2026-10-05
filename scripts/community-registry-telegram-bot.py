@@ -113,6 +113,8 @@ def send(chat_id, text):
 
 
 def pr_keyboard(pr):
+    if unavailable_pr_message(pr):
+        return inactive_pr_keyboard(pr)
     number = str(pr.get("number"))
     return {"inline_keyboard": [
         [{"text": "Открыть PR", "url": pr.get("html_url", "https://github.com/{}/pulls/{}".format(REPO, number))}],
@@ -135,28 +137,78 @@ def help_text():
             "Модерация доступна только allowlist.")
 
 
+def unavailable_pr_message(pr):
+    number = pr.get("number", "?")
+    if pr.get("merged"):
+        return "PR #{} уже слит в GitHub. Повторный Merge не нужен. Открой /inbox для актуальных заявок.".format(number)
+    if pr.get("state") != "open":
+        return "PR #{} закрыт без слияния. Открой /inbox для актуальных заявок.".format(number)
+    base = pr.get("base", {}).get("ref")
+    if base != "main":
+        return "PR #{} направлен в ветку {}, а этот бот работает с main.".format(number, base or "неизвестно")
+    return ""
+
+
+def inactive_pr_keyboard(pr):
+    number = pr.get("number", "?")
+    return {"inline_keyboard": [[{"text": "Открыть PR", "url": pr.get("html_url") or "https://github.com/{}/pull/{}".format(REPO, number)}]]}
+
+
+def clear_pr_actions(message, pr):
+    # Both the original card and its confirmation can have stale buttons.
+    message_ids = {message.get("_message_id"), message.get("_source_message_id")} - {None}
+    for message_id in message_ids:
+        try:
+            telegram("editMessageReplyMarkup", {"chat_id": message["chat"]["id"],
+                     "message_id": message_id, "reply_markup": inactive_pr_keyboard(pr)})
+        except Exception as exc:
+            # A deleted message or failed keyboard edit cannot undo a GitHub action.
+            print("Could not clear PR buttons: " + type(exc).__name__, flush=True)
+
+
 def moderate(message, command, number):
     if not is_moderator(message):
         send(message["chat"]["id"], "Доступ запрещён: ваш Telegram username не в списке модераторов.")
         return
     try:
         pr = github("/repos/{}/pulls/{}".format(REPO, int(number)))
-        if pr.get("state") != "open" or pr.get("base", {}).get("ref") != "main":
-            raise RuntimeError("PR must be open and target main")
+        unavailable = unavailable_pr_message(pr)
+        if unavailable:
+            clear_pr_actions(message, pr)
+            send(message["chat"]["id"], unavailable)
+            return
         if command == "approve":
             github("/repos/{}/pulls/{}/reviews".format(REPO, number), "POST", {"event": "APPROVE", "body": "Approved by registry Telegram moderator."})
             result = "PR #{} одобрен review.".format(number)
         elif command == "reject":
             github("/repos/{}/issues/{}/comments".format(REPO, number), "POST", {"body": "Rejected by registry Telegram moderator."})
             github("/repos/{}/pulls/{}".format(REPO, number), "PATCH", {"state": "closed"})
+            clear_pr_actions(message, dict(pr, state="closed", merged=False))
             result = "PR #{} закрыт.".format(number)
         elif command == "merge":
             merged = github("/repos/{}/pulls/{}/merge".format(REPO, number), "PUT", {"merge_method": "squash"})
+            if merged.get("merged"):
+                clear_pr_actions(message, dict(pr, state="closed", merged=True))
+            else:
+                latest = github("/repos/{}/pulls/{}".format(REPO, int(number)))
+                if latest.get("merged"):
+                    clear_pr_actions(message, latest)
+                    send(message["chat"]["id"], unavailable_pr_message(latest))
+                    return
             result = "PR #{}: {}".format(number, "смёржен" if merged.get("merged") else merged.get("message", "merge не выполнен"))
         else:
             result = "Неизвестная команда. " + help_text()
         send(message["chat"]["id"], result)
     except Exception as exc:
+        if command == "merge":
+            try:
+                latest = github("/repos/{}/pulls/{}".format(REPO, int(number)))
+                if latest.get("merged"):
+                    clear_pr_actions(message, latest)
+                    send(message["chat"]["id"], unavailable_pr_message(latest))
+                    return
+            except Exception:
+                pass
         send(message["chat"]["id"], "Ошибка GitHub: {}".format(exc))
 
 
@@ -193,7 +245,8 @@ def handle_callback(update, state):
     callback = update.get("callback_query") or {}
     data = str(callback.get("data", ""))
     message = callback.get("message") or {}
-    actor = {"from": callback.get("from") or {}, "chat": message.get("chat") or {}}
+    actor = {"from": callback.get("from") or {}, "chat": message.get("chat") or {},
+             "_message_id": message.get("message_id")}
     callback_id = callback.get("id")
     if callback_id:
         telegram("answerCallbackQuery", {"callback_query_id": callback_id})
@@ -223,6 +276,18 @@ def handle_callback(update, state):
         send(actor["chat"].get("id"), "PR #{} больше не открыт.".format(number))
         return
     if action in ("reject", "merge"):
+        try:
+            pr = github("/repos/{}/pulls/{}".format(REPO, int(number)))
+            unavailable = unavailable_pr_message(pr)
+            if unavailable:
+                clear_pr_actions(actor, pr)
+                send(actor["chat"]["id"], unavailable)
+                return
+        except Exception:
+            send(actor["chat"]["id"], "Не удалось проверить состояние PR. Повтори действие позже.")
+            return
+        key = "{}:{}:{}".format(actor["chat"]["id"], number, action)
+        state.setdefault("action_messages", {})[key] = message.get("message_id")
         prompt = "PR #{}: подтвердить действие {}?".format(number, action)
         markup = {"inline_keyboard": [[
             {"text": "Подтвердить", "callback_data": "confirm:{}:{}".format(action, number)},
@@ -233,8 +298,13 @@ def handle_callback(update, state):
         moderate(actor, action, number)
     elif action.startswith("confirm:"):
         confirmed_action = action.split(":", 1)[1]
+        key = "{}:{}:{}".format(actor["chat"]["id"], number, confirmed_action)
+        actor["_source_message_id"] = state.setdefault("action_messages", {}).pop(key, None)
         moderate(actor, confirmed_action, number)
     elif action == "cancel":
+        for pending_action in ("merge", "reject"):
+            key = "{}:{}:{}".format(actor["chat"]["id"], number, pending_action)
+            state.setdefault("action_messages", {}).pop(key, None)
         send(actor["chat"].get("id"), "Действие отменено.")
 
 
