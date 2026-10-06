@@ -173,3 +173,45 @@ To hide a listing, change its registry status from `approved` to `pending` or
 remove the entry. Do not approve code that has not been reviewed. Installed
 QML and helper scripts run with the user's account permissions; the registry is
 not a security sandbox.
+
+## AngelOS categories
+
+Market 0.8.0 groups filters into Story & games, Appearance, and Plugins & tools. The taxonomy follows AngelOS's existing realms and circles, visual novel, characters, scenes and voices, alongside palettes, skins, wallpapers, cursors, fonts, icons and effects.
+
+| `category` | Store label |
+| --- | --- |
+| `Story` | Story |
+| `Novels` | Visual novels |
+| `Quests` | Quests |
+| `Characters` | Characters |
+| `Realms` | Worlds & realms |
+| `Dialogue` | Dialogue & scenes |
+| `Minigames` | Minigames |
+| `Voices` | Voices |
+| `Pets` | Pets |
+| `Widgets` | Widgets |
+| `Desktop` | Desktop |
+| `Bar` | Bar |
+| `Themes` | Themes |
+| `Skins` | Interface skins |
+| `Wallpapers` | Wallpapers |
+| `Cursors` | Cursors |
+| `Fonts` | Fonts |
+| `Icons` | Icons |
+| `Effects` | Effects & animations |
+| `AI` | AI assistants |
+| `DeveloperTools` | Developer tools |
+| `Launcher` | Launcher & search |
+| `Network` | Network |
+| `Audio` | Music & audio |
+| `Productivity` | Productivity |
+| `Integrations` | Integrations |
+| `Accessibility` | Accessibility |
+| `System` | System |
+| `Utilities` | Utilities |
+
+Use one primary category ID and tags for other applicable filters. The registry uses stable English IDs; Store translates their labels. Legacy categories and tags remain supported, including Worlds, Narrative, Lore and story-packs. Unknown categories are listed automatically under Plugins & tools.
+
+Story collects stories, novels, quests, characters, realms, dialogue and voices. Ordinary pets and minigames require an explicit story tag to enter that filter. Themes collects appearance subcategories. Search supports both Russian and English category labels.
+
+Story example: `"category": "Story", "tags": ["story", "novel", "dialogue", "characters", "heaven"]`. Appearance example: `"category": "Skins", "tags": ["skins", "themes", "fonts", "cursor"]`. Category metadata does not load story content into the engine; plugin authors must implement integration through AngelOS's supported APIs and document compatibility and dependencies.

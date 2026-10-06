@@ -5,9 +5,9 @@
       "id": "community-store",
       "name": "AngelOS Community Store",
       "author": "futureUnd1ground",
-      "version": "0.7.2",
+      "version": "0.8.0",
       "description": "Native AngelOS settings page and terminal interface for discovering, installing, updating, reinstalling, and removing community plugins.",
-      "source": "https://github.com/futureUnd1ground/angelos-community-store/releases/download/v0.7.2/community-store-v0.7.2.zip",
+      "source": "https://github.com/futureUnd1ground/angelos-community-store/releases/download/v0.8.0/community-store-v0.8.0.zip",
       "repository": "https://github.com/futureUnd1ground/angelos-community-store",
       "tags": [
         "utility",
@@ -30,9 +30,10 @@
       "tags": [
         "widget",
         "desktop",
-        "pet"
+        "pet",
+        "bar"
       ],
-      "category": "Widgets",
+      "category": "Pets",
       "status": "approved"
     },
     {
@@ -49,9 +50,10 @@
         "desktop",
         "launcher",
         "claude",
-        "developer"
+        "developer",
+        "bar"
       ],
-      "category": "Utilities",
+      "category": "AI",
       "dependencies": [
         "Claude Code CLI for CLI/session features"
       ],
@@ -71,9 +73,10 @@
         "desktop",
         "launcher",
         "codex",
-        "developer"
+        "developer",
+        "bar"
       ],
-      "category": "Utilities",
+      "category": "AI",
       "status": "approved"
     },
     {
@@ -91,7 +94,7 @@
         "display",
         "nightlight"
       ],
-      "category": "Desktop",
+      "category": "System",
       "status": "approved"
     },
     {
@@ -109,7 +112,7 @@
         "game",
         "osu"
       ],
-      "category": "Utilities",
+      "category": "Minigames",
       "status": "approved"
     },
     {
@@ -146,7 +149,7 @@
         "speedtest",
         "utility"
       ],
-      "category": "Utilities",
+      "category": "Network",
       "dependencies": [
         "speedtest-cli for speed measurement"
       ],
@@ -202,9 +205,10 @@
         "desktop",
         "widget",
         "pets",
-        "catwalk"
+        "catwalk",
+        "bar"
       ],
-      "category": "Desktop",
+      "category": "Pets",
       "license": "MIT",
       "dependencies": [],
       "permissions": [
@@ -225,7 +229,7 @@
         "bar",
         "widget"
       ],
-      "category": "Utilities",
+      "category": "System",
       "license": "MIT",
       "dependencies": [],
       "permissions": [
@@ -274,7 +278,7 @@
         "themes",
         "wallpaper"
       ],
-      "category": "Desktop",
+      "category": "Cursors",
       "dependencies": [
         "AngelOS Cursors and PaletteGenerator services",
         "Python 3.10+"
@@ -295,7 +299,7 @@
         "hell",
         "utility"
       ],
-      "category": "Utilities",
+      "category": "Realms",
       "license": "MIT",
       "dependencies": [],
       "permissions": [],
