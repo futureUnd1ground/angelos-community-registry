@@ -347,11 +347,11 @@
     {
       "id": "open-llm",
       "name": "Open LLM — AngelOS",
-      "version": "1.1.0",
-      "description": "Открытые LLM в AngelOS: чат через ангела и демона, скачивание локальных моделей, агент с инструментами рабочего стола и MCP.",
+      "version": "1.2.0",
+      "description": "Живой AI-помощник через ангела и демона: характер, локальная память разговора, чат, модели и инструменты AngelOS.",
       "author": "futureUnd1ground",
       "repository": "https://github.com/futureUnd1ground/angelos-open-llm",
-      "source": "https://github.com/futureUnd1ground/angelos-open-llm/releases/download/v1.1.0/open-llm-v1.1.0.zip",
+      "source": "https://github.com/futureUnd1ground/angelos-open-llm/releases/download/v1.2.0/open-llm-v1.2.0.zip",
       "category": "AI",
       "tags": [
         "ai",
@@ -373,9 +373,10 @@
         "Read desktop state through AngelOS IPC and niri",
         "Apply explicit or user-enabled automatic AngelOS actions",
         "Store endpoint-specific API keys in a private local credential file",
-        "Download an official verified Ollama runtime and user-selected model weights on explicit request"
+        "Download an official verified Ollama runtime and user-selected model weights on explicit request",
+        "Optional private local conversation memory, sent back only to the selected model endpoint"
       ],
-      "status": "approved",
+      "status": "pending",
       "license": "MIT",
       "icon": "bot"
     }
