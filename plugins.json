@@ -304,6 +304,34 @@
       "dependencies": [],
       "permissions": [],
       "status": "approved"
+    },
+    {
+      "id": "community-search",
+      "name": "Community Search",
+      "version": "1.0.0",
+      "description": "Поиск плагинов Community Store через меню «Выполнить…»: карточки, версии, настройки и публикация ZIP.",
+      "author": "futureUnd1ground",
+      "repository": "https://github.com/futureUnd1ground/angelos-community-search",
+      "source": "https://github.com/futureUnd1ground/angelos-community-search/releases/download/v1.0.0/community-search-v1.0.0.zip",
+      "category": "Launcher",
+      "tags": [
+        "launcher",
+        "search",
+        "plugins",
+        "market",
+        "community"
+      ],
+      "dependencies": [
+        "Community Store 0.9.1 or newer",
+        "Python 3.10+",
+        "GitHub CLI and Git for ZIP publication"
+      ],
+      "permissions": [
+        "HTTPS access to the configured community registry"
+      ],
+      "status": "pending",
+      "license": "MIT",
+      "icon": "search"
     }
   ]
 }
