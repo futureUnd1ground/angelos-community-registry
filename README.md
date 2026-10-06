@@ -156,3 +156,7 @@ need their respective CLI/authentication to provide their full features;
 Registry entries are not a security sandbox: installed QML and scripts run
 with the user's account permissions. Do not approve code you have not
 reviewed.
+
+### Bot access and validation diagnostics
+
+Use `/github` to check the signed-in GitHub account and repository write access. Invalid registry JSON is reported with repository, revision, line and column; logging in again cannot repair a broken `plugins.json`. The bot does not merge invalid plugin metadata. Code/docs-only maintenance PRs can be merged without a plugin package. Safe reads retry transient network errors; mutations are never replayed automatically. The bot waits for network recovery at startup. Registry and bot tests run in GitHub Actions on PRs and main.
