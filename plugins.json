@@ -3,19 +3,18 @@
   "plugins": [
     {
       "id": "community-store",
-      "name": "AngelOS Community Store",
-      "author": "futureUnd1ground",
-      "version": "0.8.0",
-      "description": "Native AngelOS settings page and terminal interface for discovering, installing, updating, reinstalling, and removing community plugins.",
-      "source": "https://github.com/futureUnd1ground/angelos-community-store/releases/download/v0.8.0/community-store-v0.8.0.zip",
+      "name": "Community Store",
+      "version": "0.9.1",
+      "description": "Find, install, update and publish community plugins from ZIP.",
+      "author": "AngelOS community",
       "repository": "https://github.com/futureUnd1ground/angelos-community-store",
-      "tags": [
-        "utility",
-        "plugins",
-        "store"
-      ],
+      "source": "https://github.com/futureUnd1ground/angelos-community-store/releases/download/v0.9.1/community-store-v0.9.1.zip",
       "category": "Utilities",
-      "status": "approved"
+      "tags": [],
+      "dependencies": [],
+      "permissions": [],
+      "status": "pending",
+      "icon": "package"
     },
     {
       "id": "cat",
