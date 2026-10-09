@@ -405,6 +405,24 @@
       ],
       "permissions": [],
       "status": "pending"
+    },
+    {
+      "id": "favorite-games",
+      "name": "Любимые игры",
+      "author": "erocode",
+      "version": "1.0.0",
+      "description": "Виджет на рабочий стол с любимыми играми: добавить, убрать и запустить в один клик. Запускает .desktop-игры (как «Пуск») и любые команды — steam, lutris, wine; показывает, какая игра уже идёт. Кнопка на панели, «games …» в лаунчере, страница настроек. Обе темы и ад.",
+      "source": "https://github.com/abaudno925-create/favorite-games/releases/download/v1.0.0/favorite-games-v1.0.0.zip",
+      "repository": "https://github.com/abaudno925-create/favorite-games",
+      "license": "MIT",
+      "tags": [
+        "widget",
+        "desktop",
+        "games",
+        "launcher"
+      ],
+      "category": "Widgets",
+      "status": "pending"
     }
   ]
 }
