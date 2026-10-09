@@ -379,6 +379,37 @@
       "status": "approved",
       "license": "MIT",
       "icon": "bot"
-    }
+    },
+                                                                       
+        {                                                                  
+          "id": "opencode-companion",                                      
+          "name": "OpenCode Companion",                                    
+          "author": "abubakir",                                            
+          "version": "1.0.0",                                              
+          "description": "Спутник OpenCode: состояние сессий на панели,    
+  маскот-робот, лаунчер «oc», уведомления по завершении задач и статистика 
+  токенов.",                                                               
+          "source": "https://github.com/Gob7912/Opencode-                  
+  companion/releases/download/v1.0.0/opencode-companion-v1.0.0.zip",       
+          "sha256":                                                        
+  "5771d5325949bc6cfb80a03a8660fe243aba69bd6068f6a8fa22deaf542f3e1c",      
+          "repository": "https://github.com/Gob7912/Opencode-companion",   
+          "tags": [                                                        
+            "ai",                                                          
+            "assistant",                                                   
+            "developer-tools",                                             
+            "bar",                                                         
+            "desktop",                                                     
+            "launcher"                                                     
+          ],                                                               
+          "category": "AI",                                                
+          "license": "MIT",                                                
+          "icon": "bot",                                                   
+          "dependencies": [                                                
+            "opencode"                                                     
+          ],                                                               
+          "permissions": [],                                               
+          "status": "pending"                                              
+        }                                    
   ]
 }
