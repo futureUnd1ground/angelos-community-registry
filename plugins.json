@@ -423,6 +423,34 @@
       ],
       "category": "Widgets",
       "status": "approved"
+    },
+    {
+      "id": "vpn",
+      "name": "VPN",
+      "version": "1.0.0",
+      "description": "An Xray VPN client: subscriptions, location picker, server ping, split tunneling and a TUN mode behind a one-time password. Reads the same subscriptions as Fortuna and Happ.",
+      "author": "SugarJora",
+      "repository": "https://github.com/SugarJora/angelos-vpn",
+      "source": "https://github.com/SugarJora/angelos-vpn/releases/download/v1.0.0/vpn-v1.0.0.zip",
+      "category": "Network",
+      "tags": [
+        "vpn",
+        "xray",
+        "proxy",
+        "tun",
+        "network"
+      ],
+      "dependencies": [
+        "Xray-core (xray binary)",
+        "sing-box (TUN mode only)",
+        "polkit and pkexec (TUN mode only)"
+      ],
+      "permissions": [
+        "network — VPN traffic through the tunnel",
+        "privileged-helper — a root helper that builds the sing-box configuration; installed once through a polkit prompt and validated argument by argument"
+      ],
+      "status": "pending",
+      "icon": "lock"
     }
   ]
 }
