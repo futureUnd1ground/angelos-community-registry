@@ -452,6 +452,21 @@
       ],
       "status": "approved",
       "icon": "lock"
+    },
+    {
+      "id": "dns-switch",
+      "name": "Смена DNS",
+      "version": "1.0.0",
+      "description": "Переключение DNS одним кликом: Auto, Cloudflare, Google, Quad9, AdGuard, Yandex или свои именованные записи. Работает через NetworkManager (nmcli) без root.",
+      "author": "Rotmayer24",
+      "repository": "https://github.com/Rotmayer24/dns-switch",
+      "source": "https://github.com/Rotmayer24/dns-switch/releases/download/v1.0.0/dns-switch.zip",
+      "category": "Network",
+      "tags": ["dns", "network", "bar"],
+      "license": "MIT",
+      "dependencies": ["NetworkManager (nmcli)"],
+      "permissions": ["edit the active connection's DNS through nmcli (polkit, no root)"],
+      "status": "pending"
     }
   ]
 }
