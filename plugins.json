@@ -542,11 +542,11 @@
     {
       "id": "crew-fight",
       "name": "Драка человечков / Crew Fight",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "author": "aboba",
-      "description": "Пиксельный бой двух человечков из звонка Discord (встроенные «Человечки» AngelOS): 8 видов оружия, комбо, криты, раунды, комментатор (ru/en), турнир с сеткой, пьедестал, CC0-звуки; без звонка — демо-бойцы. / A pixel boxing match between two people from your Discord call (AngelOS's built-in crew): 8 weapons, combos, crits, rounds, a ru/en announcer, tournament brackets, a podium and CC0 sounds; demo fighters without a call.",
-      "source": "https://github.com/AbobaAI/angelos-crew-fight/releases/download/v2.0.0/crew-fight-v2.0.0.zip",
-      "sha256": "68d8559dcc45f8d016966af47495cb15f044dbc9f0dc48e4713c34e64fffbe72",
+      "description": "Пиксельный бой двух человечков из звонка Discord: щит с идеальным блоком, суперудар, бонусы (аптечка, ускорение, бомба), пять арен со своими механиками (додзё, пустыня, фьорд, площадь, терем; случайная арена и выключатель механик), окно настроек матча и виджет crew на рабочем столе. Без звонка — демо-бойцы. / A pixel fight between two people from your Discord call: a shield with a perfect block, a super move, pickups (heal, speed, bomb), five arenas with their own mechanics (dojo, desert, fjord, plaza, terem; random arena and a mechanics toggle), a match setup window and a crew desktop widget. Demo fighters without a call.",
+      "source": "https://github.com/AbobaAI/angelos-crew-fight/releases/download/v2.1.0/crew-fight-v2.1.0.zip",
+      "sha256": "d53fe6595abc48ba351af78ccc3585437733f24446a737d5da55b5c409069602",
       "repository": "https://github.com/AbobaAI/angelos-crew-fight",
       "license": "MIT",
       "themes": [
@@ -568,14 +568,18 @@
       "permissions": [
         "Read the Discord call members AngelOS already reads (no own Discord connection)",
         "Write angelOS setting discord.crewHidden (hides the two fighters' walking copies during a fight, restored afterwards)",
-        "Full-screen overlay windows while a fight/picker is open"
+        "Full-screen overlay windows while a fight/picker is open",
+        "A desktop widget (DesktopWidget.qml) on the AngelOS desktop"
       ],
       "screenshots": [
         "https://raw.githubusercontent.com/AbobaAI/angelos-crew-fight/main/screenshots/fight.gif",
-        "https://raw.githubusercontent.com/AbobaAI/angelos-crew-fight/main/screenshots/ru-win.png"
+        "https://raw.githubusercontent.com/AbobaAI/angelos-crew-fight/main/screenshots/fjord.png",
+        "https://raw.githubusercontent.com/AbobaAI/angelos-crew-fight/main/screenshots/setup.png",
+        "https://raw.githubusercontent.com/AbobaAI/angelos-crew-fight/main/screenshots/desk-open.png",
+        "https://raw.githubusercontent.com/AbobaAI/angelos-crew-fight/main/screenshots/desk-closed.png"
       ],
       "minAngelOSVersion": "6",
-      "status": "approved"
+      "status": "pending"
     },
     {
       "id": "layout-osd-big",
