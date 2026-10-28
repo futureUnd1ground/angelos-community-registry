@@ -686,7 +686,7 @@
         "Read and write the active domain list and profiles under ~/.config/zapret2",
         "Optionally install a polkit rule and a hostlist symlink through pkexec"
       ],
-      "status": "pending"
+      "status": "approved"
     }
   ]
 }
