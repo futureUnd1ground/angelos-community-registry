@@ -646,6 +646,47 @@
         "Write cache in ~/.cache/angelos/browser-art"
       ],
       "status": "approved"
+    },
+    {
+      "id": "zapret2",
+      "name": "zapret2",
+      "author": "TriOda26",
+      "version": "1.1.0",
+      "description": "Вкуси запретный плод: яблоко на панели, обход DPI через zapret2, свои профили, домены, журнал и стратегии.",
+      "source": "https://github.com/TriOda26/angel_zapret2/releases/download/v1.1.0/angel_zapret2-1.1.0.zip",
+      "sha256": "fe18a343b5de92d7cf2f28d0c24532aa71294a22df9045b71ec514c449dfd69c",
+      "repository": "https://github.com/TriOda26/angel_zapret2",
+      "license": "0BSD",
+      "icon": "lock",
+      "themes": [
+        "pixel",
+        "mac"
+      ],
+      "category": "Network",
+      "tags": [
+        "network",
+        "dpi",
+        "zapret",
+        "bypass",
+        "systemd",
+        "profiles",
+        "apple"
+      ],
+      "dependencies": [
+        "zapret2 package",
+        "systemd",
+        "polkit",
+        "journalctl",
+        "pgrep",
+        "notify-send"
+      ],
+      "permissions": [
+        "Manage the zapret2 systemd unit through systemctl",
+        "Read the zapret2 journal",
+        "Read and write the active domain list and profiles under ~/.config/zapret2",
+        "Optionally install a polkit rule and a hostlist symlink through pkexec"
+      ],
+      "status": "pending"
     }
   ]
 }
