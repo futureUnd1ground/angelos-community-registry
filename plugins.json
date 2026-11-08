@@ -687,6 +687,31 @@
         "Optionally install a polkit rule and a hostlist symlink through pkexec"
       ],
       "status": "approved"
+    },
+    {
+     "id": "qrcode",
+     "name": "qrcode",
+      "author": "Rotmayer24",
+      "version": "3.0.1",
+      "description": "Кнопка на панели открывает QR-код для текста и ссылок в мини-окне; работает в темах pixel и macOS, всё считается в оболочке.",
+      "source": "https://github.com/Rotmayer24/qrcode-angelos/releases/download/v3.0.1/qrcode.zip",
+      "sha256": "032cfa14af147130718fb60a987a151b281b5501829e3a6266c17c7fd47d16fa",
+      "repository": "https://github.com/Rotmayer24/qrcode-angelos",
+      "license": "MIT",
+      "themes": [
+        "pixel",
+        "mac"
+      ],
+      "category": "Utilities",
+      "tags": [
+        "qrcode",
+        "utility",
+        "bar",
+        "link-sharing"
+      ],
+      "dependencies": [],
+      "permissions": [],
+      "status": "pending"
     }
   ]
 }
