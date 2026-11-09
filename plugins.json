@@ -689,8 +689,8 @@
       "status": "approved"
     },
     {
-     "id": "qrcode",
-     "name": "qrcode",
+      "id": "qrcode",
+      "name": "qrcode",
       "author": "Rotmayer24",
       "version": "3.0.1",
       "description": "Кнопка на панели открывает QR-код для текста и ссылок в мини-окне; работает в темах pixel и macOS, всё считается в оболочке.",
@@ -711,7 +711,7 @@
       ],
       "dependencies": [],
       "permissions": [],
-      "status": "pending"
+      "status": "approved"
     }
   ]
 }
