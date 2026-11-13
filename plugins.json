@@ -712,6 +712,45 @@
       "dependencies": [],
       "permissions": [],
       "status": "approved"
+    },
+    {
+      "id": "ocr-small",
+      "name": "OCR Small",
+      "author": "rinn0hara",
+      "version": "0.1.0",
+      "description": "Локальный OCR выбранной области через Ollama GLM-OCR, Overlay-карточка и офлайн-перевод EN→RU.",
+      "source": "https://github.com/rinn0hara/ocr-small/releases/download/v0.1.0/ocr-small-v0.1.0.zip",
+      "sha256": "41fc30f946769726443a92c1339c8f5a362dabfbfa07ebf07b269ad3d593b4f2",
+      "repository": "https://github.com/rinn0hara/ocr-small",
+      "tags": [
+        "ocr",
+        "translation",
+        "local-ai",
+        "ollama",
+        "accessibility"
+      ],
+      "category": "Accessibility",
+      "license": "MIT",
+      "themes": [
+        "pixel",
+        "mac"
+      ],
+      "dependencies": [
+        "AngelOS 6 / Quickshell, Wayland and niri",
+        "Ollama with the glm-ocr model (Vulkan build for GPU acceleration)",
+        "slurp, grim, wl-clipboard, curl, sha256sum, systemd --user",
+        "Python 3 with venv/pip or uv; ctranslate2 and sentencepiece"
+      ],
+      "permissions": [
+        "Capture the screen region selected by the user via slurp and grim",
+        "Send the selected image only to the local Ollama API at 127.0.0.1:11434",
+        "Copy recognized or translated text using wl-copy",
+        "Create ~/.config/systemd/user/ollama-ocr.service when the user runs install.sh",
+        "Add the Mod+Shift+T shortcut to ~/.config/niri/cfg/user.kdl when the user runs install.sh",
+        "Download the CT2 translation model from Hugging Face when the user runs install.sh",
+        "Install ctranslate2 and sentencepiece from PyPI when the user runs install.sh"
+      ],
+      "status": "pending"
     }
   ]
 }
