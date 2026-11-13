@@ -750,7 +750,7 @@
         "Download the CT2 translation model from Hugging Face when the user runs install.sh",
         "Install ctranslate2 and sentencepiece from PyPI when the user runs install.sh"
       ],
-      "status": "pending"
+      "status": "approved"
     }
   ]
 }
